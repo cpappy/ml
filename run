@@ -1,0 +1,52 @@
+source venv/bin/activate
+
+if [ $# != 3 ]; then
+    echo "Usage:"
+    echo "run w1 w2 w3"
+    echo "Where values w1 w2 w3 determine the proportion"
+    echo "of training, validation and testing images"S
+    exit
+fi
+
+rm -rf data
+cp -rp fruit-data/ data/
+
+# ----- Check, fix, repar and zero-pad the image and xml files
+python lib/image_data_auditor.py --pad --repair data/apple
+python lib/image_data_auditor.py --pad --repair data/banana
+python lib/image_data_auditor.py --pad --repair data/orange
+python lib/image_data_auditor.py --pad --repair data/mixed
+
+
+# ----- Split the data into train, validate and test directories
+python lib/partition_dataset.py \
+    --sources apple banana orange mixed \
+    --targets train validate test \
+    --weights $weights $1 $2 $3\
+    --copy-xml
+
+# ----- Create csv files from the xml files
+python lib/xml_annot_parser.py data/train     data/train.csv
+python lib/xml_annot_parser.py data/validate  data/validate.csv
+python lib/xml_annot_parser.py data/test      data/test.csv
+
+# ----- CCreate the tf record files
+python lib/tf_record_generator.py \
+    data/label-map.pbtxt  \
+    data/train  \
+    data/train.csv  \
+    data/train.record
+
+python lib/tf_record_generator.py \
+    data/label-map.pbtxt  \
+    data/validate  \
+    data/validate.csv  \
+    data/validate.record
+
+python lib/tf_record_generator.py \
+    data/label-map.pbtxt  \
+    data/test  \
+    data/test.csv  \
+    data/test.record
+
+rm -rf data/apple data/banana data/mixed data/orange
