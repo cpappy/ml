@@ -11,7 +11,7 @@ fi
 rm -rf data
 cp -rp fruit-data/ data/
 
-# ----- Check, fix, repar and zero-pad the image and xml files
+# ----- Check, repair and zero-pad the image and xml files
 python lib/image_data_auditor.py --pad --repair data/apple
 python lib/image_data_auditor.py --pad --repair data/banana
 python lib/image_data_auditor.py --pad --repair data/orange

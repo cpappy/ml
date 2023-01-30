@@ -83,10 +83,10 @@ def _insert(key, value, lines):
             path.pop()
 
 def edit_pipeline_config(edit_spec_file, input_file, output_file):
-    edit_specs = _read_edit_specs(args.edit_spec_file)
+    edit_specs = _read_edit_specs(edit_spec_file)
 
     # Read the the file to me edited.
-    with open(args.input_file) as f:
+    with open(input_file) as f:
         lines = [line.rstrip() for line in f]
 
     _edit(edit_specs, lines)
@@ -94,11 +94,11 @@ def edit_pipeline_config(edit_spec_file, input_file, output_file):
     for key, value in edit_specs.items():
         _insert(key, value, lines)
 
-    with open(args.output_file, 'w') as f:
+    with open(output_file, 'w') as f:
         for line in lines:
             f.write(line + '\n')
 
-    print('\nCreated edited file:', args.output_file)
+    print('\nCreated edited config file:', output_file)
 
 if __name__ == '__main__':
     import argparse

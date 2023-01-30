@@ -4,7 +4,7 @@ This is alpha softeare and subject to change at any time.
 
 It provides tools for preparing image data for object detection
 
-Note that the data directory has already been prepared and is ready to use as is. It contains 70% images to training, 20% images for valudation and 10% imsthas for testin.
+Note that the data directory has already been prepared and is ready to use as is. It contains 70% images for training, 20% images for valudation and 10% imsthas for testing.
 
 If you would like to use different proportions of images, follow the steps below.
 
