@@ -1,0 +1,26 @@
+<annotation>
+	<folder>data/orange</folder>
+	<filename>orange_055.jpg</filename>
+	<path>/home/cp/sw/make/ml/data/orange/orange_055.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>960</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>orange</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>36</xmin>
+			<ymin>158</ymin>
+			<xmax>492</xmax>
+			<ymax>644</ymax>
+		</bndbox>
+	</object>
+</annotation>

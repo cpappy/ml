@@ -1,0 +1,26 @@
+<annotation>
+	<folder>data/banana</folder>
+	<filename>banana_056.jpg</filename>
+	<path>/home/cp/sw/make/ml/data/banana/banana_056.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1910</width>
+		<height>1000</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>banana</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>4</xmin>
+			<ymin>3</ymin>
+			<xmax>1818</xmax>
+			<ymax>926</ymax>
+		</bndbox>
+	</object>
+</annotation>

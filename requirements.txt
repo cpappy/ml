@@ -1,0 +1,4 @@
+object_detection
+pandas
+Pillow
+tensorflow
